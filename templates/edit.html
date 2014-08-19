@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 <link href="/static/css/edit.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="/static/js/new.js?v=2"></script>
 <script type="text/javascript" src="/static/js/edit.js"></script>
 
 <form method=POST>
@@ -92,7 +93,7 @@
     <div class='b-label'>Rooms:<br /><span style="font-size:10; font-weight: normal;">(Capacity in<br/>parentheses)</span></div>
     <div class='b-data checklist' id="roomlist">
     {% for room in rooms %}
-      <nobr><input type="checkbox" id="room-{{room.0}}" name="rooms" value="{{room.0}}" {{event.rooms|check_filter:room.0}} /><label for="room-{{room.0}}">{{room.0|title}} ({{room.1}})</label></nobr>
+      <nobr><input type="checkbox" id="room-{{room.0|strip_spaces}}" name="rooms" value="{{room.0}}" {{event.rooms|check_filter:room.0}} /><label for="room-{{room.0}}">{{room.0|title}} ({{room.1}})</label></nobr>
     {% endfor %}
     </div>
   </div>
